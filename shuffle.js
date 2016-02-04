@@ -17,6 +17,3 @@ lib.shuffle = function(list){
 	array.forEach(changePosition);
 	return array[array.length-1];
 };
- 
-// list = [{row:4,col:5},{row:7,col:5},{row:0,col:9}];
-// console.log(lib.shuffle(list));

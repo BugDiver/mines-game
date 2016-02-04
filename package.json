@@ -2,9 +2,9 @@
   "name": "mine-filling",
   "version": "1.0.0",
   "description": "",
-  "main": "mineLib.js",
+  "main": "mineMapping.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node mineMapping.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/BugDiver/mines-game/issues"
   },
-  "homepage": "https://github.com/BugDiver/mines-game#readme"
+  "homepage": "https://github.com/BugDiver/mines-game#readme",
+  "dependencies": {
+    "axel": "0.0.3"
+  }
 }
