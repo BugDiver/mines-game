@@ -23,6 +23,7 @@ var colourValidMove = function(validMoves){
 		ctx.fg(0,0,0);
 		ctx.text((move.col+1)*7+3,(move.row+1)*3+1,move.row+""+move.col)
 	})
+	ctx.cursor.restore();
 };
 
 var colourCurrentmove = function(currentMove){
@@ -32,6 +33,7 @@ var colourCurrentmove = function(currentMove){
 	ctx.box(length,width,5,2);
 	ctx.fg(0,0,0);
 	ctx.text(length+3,width+1,currentMove.row+""+currentMove.col);
+	ctx.cursor.restore();
 };
 
 
@@ -52,7 +54,7 @@ var tapAtSquare = function(input,userMoves,solvingPath,previousValidMoves){
 	if(!lib.isValidMove(input,previousValidMoves)){
 		ctx.fg(255,0,0)
 		ctx.text(80,17,"Enter a Valid Move From The Yellow Boxes. . .");
-		setTimeout(main(solvingPath),1500);
+		setTimeout(function(){return main(solvingPath)},1500);
 		return previousValidMoves;
 	}
 	var status = lib.minePackage(input,solvingPath);
@@ -80,6 +82,7 @@ var main = function(solvingPath){
 	process.stdin.setEncoding('utf8');
 	presentBoard();
 	var validChoices = lib.getInitialMoves();
+	colourValidMove(validChoices);
 	var userMoves = [];
 	process.stdin.on('readable', function() {
 		var move = process.stdin.read();
